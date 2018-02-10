@@ -3,7 +3,6 @@ import './App.css'
 import TreeNew from './generateTree'
 
 const tree = new TreeNew()
-const time_start = new Date().getTime()
 
 const fetchData = async id => {
   const res = await fetch(
@@ -12,7 +11,6 @@ const fetchData = async id => {
   const item = await res.json()
   if (!item.kids) {
     tree.add(item.id, item.parent)
-    console.warn(new Date().getTime() - time_start)
 
     return
   }
@@ -21,7 +19,18 @@ const fetchData = async id => {
   })
 }
 
-tree.add(16323105)
+
+tree.add('0')
+tree.add('0-0', '0')
+tree.add('0-0-0', '0-0')
+tree.add('0-0-0-0', '0-0-0')
+tree.add('0-0-1', '0-0')
+tree.add('0-0-2', '0-0')
+tree.add('0-1', '0')
+tree.add('0-1-0', '0-1')
+tree.add('0-1-1', '0-1')
+tree.add('0-2', '0')
+
 fetchData(16323105)
 
 const Tree = ({ node }) => {
@@ -55,7 +64,6 @@ class AsyncTree extends React.Component {
   render() {
     const { item } = this.state
     if (Object.keys(item).length === 0) return ''
-    // console.warn(new Date().getTime() - this.props.time)
     if (!item.kids) {
       return item.id
     }
@@ -80,9 +88,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Tree View</h1>
         </header>
-        <main>{/* <Tree node={tree.root} /> */}</main>
+        <main><Tree node={tree.root} /></main>
         <hr />
-        <main>{<AsyncTree id={16323105} time={time} />}</main>
+        {/* <main>{<AsyncTree id={16323105} time={time} />}</main> */}
       </div>
     )
   }

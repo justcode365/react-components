@@ -143,16 +143,5 @@ class Tree {
   }
 }
 
-// const tree = new Tree()
-// tree.add('0')
-// tree.add('0-0', '0')
-// tree.add('0-0-0', '0-0')
-// tree.add('0-0-0-0', '0-0-0')
-// tree.add('0-0-1', '0-0')
-// tree.add('0-0-2', '0-0')
-// tree.add('0-1', '0')
-// tree.add('0-1-0', '0-1')
-// tree.add('0-1-1', '0-1')
-// tree.add('0-2', '0')
 
 export default Tree
