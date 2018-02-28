@@ -20,7 +20,7 @@ export default class Tabs extends Component {
           onCancel={this.toggleVisible}
         >
           <h3>title</h3>
-          <p>2</p>
+          <input type="text" />
         </Modal>
       </div>
     )
