@@ -1,13 +1,10 @@
 import React, { Component, Fragment } from 'react'
-import './App.css'
 import TreeNew from './generateTree'
 
 const tree = new TreeNew()
 
 const fetchData = async id => {
-  const res = await fetch(
-    `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
-  )
+  const res = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
   const item = await res.json()
   if (!item.kids) {
     tree.add(item.id, item.parent)
@@ -18,7 +15,6 @@ const fetchData = async id => {
     fetchData(id)
   })
 }
-
 
 tree.add('0')
 tree.add('0-0', '0')
@@ -41,7 +37,7 @@ const Tree = ({ node }) => {
     <div>
       <div className="parent">{node.data}</div>
       {node.children.map(n => (
-        <div key={n.data}>
+        <div key={n.data} style={{ paddingLeft: 10 }}>
           <Tree node={n} />
         </div>
       ))}
@@ -54,9 +50,7 @@ class AsyncTree extends React.Component {
   async componentDidMount() {
     const { id } = this.props
 
-    const res = await fetch(
-      `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
-    )
+    const res = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
     const item = await res.json()
     this.setState({ item })
   }
@@ -69,9 +63,9 @@ class AsyncTree extends React.Component {
     }
     return (
       <div>
-        <div className="parent">{item.id}</div>
+        <div>{item.id}</div>
         {item.kids.map(id => (
-          <div key={id}>
+          <div key={id} style={{ paddingLeft: 30 }}>
             <AsyncTree id={id} time={this.props.time} />
           </div>
         ))}
@@ -88,8 +82,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Tree View</h1>
         </header>
-        <main><Tree node={tree.root} /></main>
-        <hr />
+        <main>
+          <Tree node={tree.root} />
+        </main>
         {/* <main>{<AsyncTree id={16323105} time={time} />}</main> */}
       </div>
     )

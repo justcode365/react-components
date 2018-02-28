@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import Tabs from './components/Tabs'
 import Modal from './components/Modal'
+import Tree from './components/Tree'
 
 const routesConfig = {
   '#/Tabs': Tabs,
-  '#/Modal': Modal
+  '#/Modal': Modal,
+  '#/Tree': Tree
 }
 
 export default class App extends Component {
