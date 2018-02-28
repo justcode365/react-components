@@ -1,0 +1,19 @@
+.tabs ul {
+  list-style: none;
+}
+
+.tabs li {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.tabs li:hover {
+  color: #40a9ff;
+}
+
+.tabs li.active {
+  color: #1890ff;
+}

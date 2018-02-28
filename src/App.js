@@ -7,13 +7,9 @@ const routesConfig = {
   '#/Modal': Modal
 }
 
-// console.warn(Modal.name)
-
-// const routes = ['#/Tabs', '#/Modal']
-
 export default class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     const { hash } = window.location
     this.state = { hash }
   }
@@ -25,8 +21,8 @@ export default class App extends Component {
 
   render() {
     const routesArr = Object.keys(routesConfig)
-
     const C = routesConfig[this.state.hash]
+
     return (
       <div style={{ margin: '0 auto' }}>
         <nav>
