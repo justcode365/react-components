@@ -36,7 +36,7 @@ export default class App extends Component {
             ))}
           </ul>
         </nav>
-        <main style={{ flex: 1 }}>{C && <C />}</main>
+        <main style={{ flex: 1, paddingTop: 100 }}>{C && <C />}</main>
       </div>
     )
   }
