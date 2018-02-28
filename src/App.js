@@ -24,8 +24,8 @@ export default class App extends Component {
     const C = routesConfig[this.state.hash]
 
     return (
-      <div style={{ margin: '0 auto' }}>
-        <nav>
+      <div style={{ display: 'flex' }}>
+        <nav style={{ width: '20%', height: '100vh' }}>
           <ul>
             {routesArr.map(name => (
               <li key={name}>
@@ -36,7 +36,7 @@ export default class App extends Component {
             ))}
           </ul>
         </nav>
-        <main>{C && <C />}</main>
+        <main style={{ flex: 1 }}>{C && <C />}</main>
       </div>
     )
   }

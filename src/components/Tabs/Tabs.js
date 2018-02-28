@@ -9,7 +9,7 @@ export default class Tabs extends Component {
 
   render() {
     const { children, onChange } = this.props
-    const { activeIndex } = this.state
+    const activeIndex = this.props.activeIndex || this.state.activeIndex
 
     return (
       <div className="tabs">
