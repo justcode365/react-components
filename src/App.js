@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Tabs from './components/Tabs'
 import Modal from './components/Modal'
 import Tree from './components/Tree'
+import { hot } from 'react-hot-loader'
 
 const routesConfig = {
   '#/Tabs': Tabs,
@@ -9,7 +10,7 @@ const routesConfig = {
   '#/Tree': Tree
 }
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props)
     const { hash } = window.location
@@ -23,7 +24,7 @@ export default class App extends Component {
 
   render() {
     const routesArr = Object.keys(routesConfig)
-    const C = routesConfig[this.state.hash]
+    const component = routesConfig[this.state.hash]
 
     return (
       <div style={{ display: 'flex' }}>
@@ -38,8 +39,12 @@ export default class App extends Component {
             ))}
           </ul>
         </nav>
-        <main style={{ flex: 1, paddingTop: 100 }}>{C && <C />}</main>
+        <main style={{ flex: 1, paddingTop: 100 }}>
+          {component && React.createElement(component)}
+        </main>
       </div>
     )
   }
 }
+
+export default hot(module)(App)

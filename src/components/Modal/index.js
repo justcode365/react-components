@@ -19,8 +19,8 @@ export default class Tabs extends Component {
           onOk={this.toggleVisible}
           onCancel={this.toggleVisible}
         >
-          <h3>title</h3>
-          <input type="text" />
+          <h3>Title</h3>
+          <p>content </p>
         </Modal>
       </div>
     )

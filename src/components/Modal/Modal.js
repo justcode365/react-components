@@ -9,10 +9,19 @@ export default class Modal extends Component {
       <Inner>
         <div className="modal">
           <div className="modal-content">
-            <span className="modal-close" onClick={onCancel}>
-              &times;
-            </span>
-            {children}
+            <header>
+              <span>Modal</span>
+
+              <a className="modal-close" onClick={onCancel}>
+                &times;
+              </a>
+            </header>
+            <main>{children}</main>
+
+            <footer>
+              <button onClick={onCancel}>Cancel</button>
+              <button onClick={onCancel}>Ok</button>
+            </footer>
           </div>
         </div>
       </Inner>
