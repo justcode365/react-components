@@ -7,10 +7,6 @@ import { withInfo } from '@storybook/addon-info'
 
 import { Button, Welcome } from '@storybook/react/demo'
 
-import Modal from '../components/Modal'
-import Tabs from '../components/Tabs'
-import Tree from '../components/Tree'
-
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />)
 
 storiesOf('Button', module)
@@ -27,7 +23,3 @@ storiesOf('Button', module)
   
   `)(() => <Button>Click the "?" mark at top-right to view the info.</Button>)
   )
-
-storiesOf('Modal', module).add('Basic', () => <Modal />)
-storiesOf('Tabs', module).add('Basic', () => <Tabs />)
-storiesOf('Tree', module).add('Basic', () => <Tree />)
