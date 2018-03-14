@@ -1,23 +1,34 @@
-import React, { Component } from 'react'
-import Tabs from './Tabs'
-import Tab from './Tab'
+import React from 'react'
+import styled from 'styled-components'
 
-export default class TabsExample extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { activeIndex: 0 }
+const Tabs = styled.ul`
+  --green: #5cb85c;
+  list-style: none;
+  margin: 0;
+  margin-bottom: -1px;
+  padding: 0;
+  display: flex;
+`
+
+export default ({ children, activeKey }) => (
+  <Tabs>
+    {React.Children.map(children, (child, index) => {
+      if (child === null) return null
+
+      return React.cloneElement(child, { active: activeKey === child.key })
+    })}
+  </Tabs>
+)
+
+export const Tab = styled.li`
+    padding: 10px 20px;
+    display: inline-block;
+    cursor: pointer;
+    color: ${props => (props.active ? 'var(--green)' : '#aaa')};
+    border-bottom: ${props => (props.active ? '2px solid var(--green)' : 'none')};
   }
 
-  handleChange = index => {
-    this.setState({ activeIndex: index })
+  &:hover {
+    color: #478c47;
   }
-  render() {
-    return (
-      <Tabs activeIndex={this.state.activeIndex} onChange={this.handleChange}>
-        <Tab title={'1'}>Tab 1</Tab>
-        <Tab title={'2'}>Tab 2</Tab>
-        <Tab title={'3'}>Tab 3</Tab>
-      </Tabs>
-    )
-  }
-}
+`

@@ -15,7 +15,6 @@ storiesOf('Button', module)
   .add(
     'simple info',
     withInfo(`
-    description or documentation about my component, supports markdown
   
     ~~~js
     <Button>Click Here</Button>
